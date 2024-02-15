@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "972061656776",
+    "firebase_url": "https://pari-gsc-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "pari-gsc",
+    "storage_bucket": "pari-gsc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:972061656776:android:d16cb61b4625b1eeb5c7fd",
+        "android_client_info": {
+          "package_name": "com.example.pari_gsc"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAmUJYTQNIk109ZrwyBLS_MiRzjal5bcB8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
