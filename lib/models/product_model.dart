@@ -1,15 +1,23 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+
 class ProductModel {
-  final int id;
-  final String name;
-  final String image;
-  final double price;
-  final bool isFavorite;
+  final String productId;
+  final String productOwner;
+  final String productTitle;
+  final List<String> productPhotos;
+  final String productDescription;
+  final Timestamp creationDate;
+  final Timestamp lastUpdateDate;
+  final List<String> interestedUsers;
 
   ProductModel({
-    required this.id,
-    required this.name,
-    required this.image,
-    required this.price,
-    required this.isFavorite,
+    required this.productId,
+    required this.productOwner,
+    required this.productTitle,
+    required this.productPhotos,
+    required this.productDescription,
+    required this.creationDate,
+    required this.lastUpdateDate,
+    required this.interestedUsers,
   });
 }

@@ -4,7 +4,6 @@ import 'package:pari_gsc/views/chat_view.dart';
 import 'package:pari_gsc/views/home.dart';
 import 'package:pari_gsc/views/cart_view.dart';
 import 'package:pari_gsc/views/notifications_view.dart';
-import 'package:pari_gsc/views/settings_view.dart';
 
 class BaseView extends StatefulWidget {
   BaseView({Key? key}) : super(key: key);
@@ -21,7 +20,6 @@ class _BaseViewState extends State<BaseView> {
     ChatView(),
     CartView(),
     NotificationsView(),
-    SettingsView(),
   ];
 
   void _onItemTapped(int index) {
@@ -42,7 +40,6 @@ class _BaseViewState extends State<BaseView> {
         ),
       ),
       bottomNavigationBar: CurvedNavigationBar(
-        // Replace GNav with CurvedNavigationBar
         index: _selectedIndex,
         onTap: _onItemTapped,
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
@@ -52,7 +49,6 @@ class _BaseViewState extends State<BaseView> {
           Icon(Icons.chat_bubble),
           Icon(Icons.shopping_cart),
           Icon(Icons.notifications),
-          Icon(Icons.settings),
         ],
       ),
     );
