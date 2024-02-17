@@ -19,7 +19,8 @@ class _HomeViewState extends State<HomeView> {
       productTitle: 'Product 1',
       productPhotos: [
         'assets/images/product1.png',
-        'assets/images/product2.png'
+        'assets/images/product2.png',
+        'assets/images/product3.png',
       ],
       productDescription: 'Description 1',
       creationDate: Timestamp.now(),
@@ -32,7 +33,8 @@ class _HomeViewState extends State<HomeView> {
       productTitle: 'Product 2',
       productPhotos: [
         'assets/images/product2.png',
-        'assets/images/product1.png'
+        'assets/images/product1.png',
+        'assets/images/product3.png',
       ],
       productDescription: 'Description 2',
       creationDate: Timestamp.now(),

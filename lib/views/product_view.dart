@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:pari_gsc/models/comment_model.dart';
 import 'package:pari_gsc/models/product_model.dart';
+import 'package:pari_gsc/views/comment_view.dart';
 
 class ProductDetailView extends StatefulWidget {
   final ProductModel product;
@@ -79,19 +81,39 @@ class _ProductDetailViewState extends State<ProductDetailView> {
               padding: const EdgeInsets.symmetric(horizontal: 8.0),
               child: Text(widget.product.productDescription!),
             ),
-            Center(
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: ElevatedButton(
-                  onPressed: () {
-                    // TODO Implement add-to-cart logic
-                  },
-                  child: Text('Add to Cart'),
+            /* Row(
+              children: [
+                CommentView(
+                  postcomments: [
+                    CommentModel(
+                      commentID: '1',
+                      postID: widget.product.productId,
+                      username: 'User1',
+                      timestamp: DateTime.now().subtract(Duration(days: 1)),
+                      content: 'Great product, really loved it!',
+                      UID: 'uid1',
+                    ),
+                    CommentModel(
+                      commentID: '2',
+                      postID: widget.product.productId,
+                      username: 'User2',
+                      timestamp: DateTime.now().subtract(Duration(hours: 2)),
+                      content: 'Does it come in different colors?',
+                      UID: 'uid2',
+                    ),
+                  ],
+                  postID: widget.product.productId,
                 ),
-              ),
-            ),
+              ],
+            ),*/
           ],
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          // Implement your add-to-cart logic here
+        },
+        child: Icon(Icons.shopping_basket),
       ),
     );
   }

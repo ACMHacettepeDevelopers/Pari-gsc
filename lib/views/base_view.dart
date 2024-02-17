@@ -19,7 +19,7 @@ class _BaseViewState extends State<BaseView> {
     HomeView(),
     ChatView(),
     CartView(),
-    FavoritesView(),
+    HomeView(),
   ];
 
   void _onItemTapped(int index) {
