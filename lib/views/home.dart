@@ -17,7 +17,10 @@ class _HomeViewState extends State<HomeView> {
       productId: '1',
       productOwner: 'Owner 1',
       productTitle: 'Product 1',
-      productPhotos: ['img'],
+      productPhotos: [
+        'assets/images/product1.png',
+        'assets/images/product2.png'
+      ],
       productDescription: 'Description 1',
       creationDate: Timestamp.now(),
       lastUpdateDate: Timestamp.now(),
@@ -27,7 +30,10 @@ class _HomeViewState extends State<HomeView> {
       productId: '2',
       productOwner: 'Owner 2',
       productTitle: 'Product 2',
-      productPhotos: ['img'],
+      productPhotos: [
+        'assets/images/product2.png',
+        'assets/images/product1.png'
+      ],
       productDescription: 'Description 2',
       creationDate: Timestamp.now(),
       lastUpdateDate: Timestamp.now(),
@@ -37,7 +43,10 @@ class _HomeViewState extends State<HomeView> {
       productId: '3',
       productOwner: 'Owner 3',
       productTitle: 'Product 3',
-      productPhotos: ['img'],
+      productPhotos: [
+        'assets/images/product3.png',
+        'assets/images/product1.png'
+      ],
       productDescription: 'Description 3',
       creationDate: Timestamp.now(),
       lastUpdateDate: Timestamp.now(),

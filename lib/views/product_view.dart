@@ -1,90 +1,96 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_animate/flutter_animate.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:pari_gsc/components/custom_button.dart';
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:pari_gsc/models/product_model.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 
-class ProductDetailsController extends ChangeNotifier {
-  late ProductModel product;
-  ProductDetailsController() {
-    product = ProductModel(
-      productId: 'SampleProductId',
-      productOwner: 'SampleOwner',
-      productTitle: 'Sample Product',
-      productPhotos: ['img1', 'img2'],
-      productDescription: 'Sample description',
-      creationDate: Timestamp.now(),
-      lastUpdateDate: Timestamp.now(),
-      interestedUsers: ['user1', 'user2'],
-    );
-  }
+class ProductDetailView extends StatefulWidget {
+  final ProductModel product;
 
-  void onFavoriteButtonPressed() {
-    // TODO: Add logic for favorite button
-  }
+  const ProductDetailView({Key? key, required this.product}) : super(key: key);
 
-  void onAddToCartPressed() {
-    // TODO: Add logic for adding to cart
-    print('Adding ${product.productTitle} to the cart');
-  }
+  @override
+  _ProductDetailViewState createState() => _ProductDetailViewState();
 }
 
-class ProductDetailsView extends StatelessWidget {
-  const ProductDetailsView({Key? key}) : super(key: key);
+class _ProductDetailViewState extends State<ProductDetailView> {
+  int _current = 0;
+  final CarouselController _carouselController = CarouselController();
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-    final controller = ProductDetailsController();
-
     return Scaffold(
-      body: SafeArea(
-        child: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: 30.w),
-                child: CustomButton(
-                  text: 'Add to Cart',
-                  onPressed: () => controller.onAddToCartPressed(),
-                  fontSize: 16.sp,
-                  radius: 12.r,
-                  verticalPadding: 12.h,
-                  hasShadow: true,
-                  shadowColor: theme.primaryColor,
-                  shadowOpacity: 0.3,
-                  shadowBlurRadius: 4,
-                  shadowSpreadRadius: 0,
-                ).animate().fade().slideY(
-                      duration: const Duration(milliseconds: 300),
-                      begin: 1,
-                      curve: Curves.easeInSine,
-                    ),
+      appBar: AppBar(
+        title: Text(widget.product.productTitle!),
+      ),
+      body: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            CarouselSlider(
+              items: widget.product.productPhotos!.map((item) {
+                return Builder(
+                  builder: (BuildContext context) {
+                    return Container(
+                      width: MediaQuery.of(context).size.width,
+                      margin: EdgeInsets.symmetric(horizontal: 5.0),
+                      child: Image.asset(item, fit: BoxFit.fitHeight),
+                    );
+                  },
+                );
+              }).toList(),
+              carouselController: _carouselController,
+              options: CarouselOptions(
+                  autoPlay: false,
+                  enlargeCenterPage: true,
+                  aspectRatio: 1.0,
+                  onPageChanged: (index, reason) {
+                    setState(() {
+                      _current = index;
+                    });
+                  }),
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                if (_current > 0) // Left arrow button
+                  IconButton(
+                    icon: Icon(Icons.arrow_back_ios, size: 24),
+                    onPressed: () => _carouselController.previousPage(),
+                  ),
+                if (_current <
+                    widget.product.productPhotos!.length -
+                        1) // Right arrow button
+                  IconButton(
+                    icon: Icon(Icons.arrow_forward_ios, size: 24),
+                    onPressed: () => _carouselController.nextPage(),
+                  ),
+              ],
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text(
+                widget.product.productTitle!,
+                style: Theme.of(context)
+                    .textTheme
+                    .headline6
+                    ?.copyWith(fontWeight: FontWeight.bold),
               ),
-              20.verticalSpace,
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: 30.w),
-                child: CustomButton(
-                  text: 'Favorite',
-                  onPressed: () => controller.onFavoriteButtonPressed(),
-                  fontSize: 16.sp,
-                  radius: 12.r,
-                  verticalPadding: 12.h,
-                  hasShadow: true,
-                  shadowColor: theme.primaryColor,
-                  shadowOpacity: 0.3,
-                  shadowBlurRadius: 4,
-                  shadowSpreadRadius: 0,
-                ).animate().fade().slideY(
-                      duration: const Duration(milliseconds: 300),
-                      begin: 1,
-                      curve: Curves.easeInSine,
-                    ),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 8.0),
+              child: Text(widget.product.productDescription!),
+            ),
+            Center(
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: ElevatedButton(
+                  onPressed: () {
+                    // TODO Implement add-to-cart logic
+                  },
+                  child: Text('Add to Cart'),
+                ),
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );

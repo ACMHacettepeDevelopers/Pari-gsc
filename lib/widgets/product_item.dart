@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pari_gsc/models/product_model.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:pari_gsc/views/product_view.dart';
 
 class ProductItem extends StatefulWidget {
   final ProductModel product;
@@ -21,8 +22,12 @@ class _ProductItemState extends State<ProductItem> {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.pushNamed(context, '/product-details',
-            arguments: widget.product);
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context) => ProductDetailView(
+                      product: widget.product,
+                    )));
       },
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
