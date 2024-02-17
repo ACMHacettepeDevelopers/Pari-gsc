@@ -3,7 +3,7 @@ import 'package:curved_navigation_bar/curved_navigation_bar.dart'; // Import the
 import 'package:pari_gsc/views/chat_view.dart';
 import 'package:pari_gsc/views/home.dart';
 import 'package:pari_gsc/views/cart_view.dart';
-import 'package:pari_gsc/views/notifications_view.dart';
+import 'package:pari_gsc/views/favorites_view.dart';
 
 class BaseView extends StatefulWidget {
   BaseView({Key? key}) : super(key: key);
@@ -19,7 +19,7 @@ class _BaseViewState extends State<BaseView> {
     HomeView(),
     ChatView(),
     CartView(),
-    NotificationsView(),
+    FavoritesView(),
   ];
 
   void _onItemTapped(int index) {
@@ -48,7 +48,7 @@ class _BaseViewState extends State<BaseView> {
           Icon(Icons.home),
           Icon(Icons.chat_bubble),
           Icon(Icons.shopping_cart),
-          Icon(Icons.notifications),
+          Icon(Icons.favorite),
         ],
       ),
     );

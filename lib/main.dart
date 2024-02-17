@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
       ),
       home: Scaffold(
         appBar: AppBar(
-          title: Text('Home Page'),
+          title: Center(child: Text('PARI')),
         ),
         body: Center(
           child: BaseView(),
