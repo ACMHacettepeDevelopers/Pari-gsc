@@ -111,7 +111,7 @@ class _ProductDetailViewState extends State<ProductDetailView> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          // Implement your add-to-cart logic here
+          // TODO add-to-cart logic here
         },
         child: Icon(Icons.shopping_basket),
       ),
