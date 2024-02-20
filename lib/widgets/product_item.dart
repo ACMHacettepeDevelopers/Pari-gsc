@@ -23,11 +23,13 @@ class _ProductItemState extends State<ProductItem> {
     return GestureDetector(
       onTap: () {
         Navigator.push(
-            context,
-            MaterialPageRoute(
-                builder: (context) => ProductDetailView(
-                      product: widget.product,
-                    )));
+          context,
+          MaterialPageRoute(
+            builder: (context) => ProductDetailView(
+              product: widget.product,
+            ),
+          ),
+        );
       },
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -45,8 +47,11 @@ class _ProductItemState extends State<ProductItem> {
               Positioned(
                 right: widget.product.productId == 'SampleProductId' ? 0 : 20.w,
                 bottom: -80.h,
-                child: Image.asset(widget.product.productPhotos![0],
-                    height: 260.h),
+                child: Image.asset(
+                  widget.product.productPhotos![0],
+                  height: 260.h,
+                  fit: BoxFit.fitHeight,
+                ),
               ),
               Positioned(
                 left: 15.w,

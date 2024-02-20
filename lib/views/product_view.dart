@@ -21,7 +21,10 @@ class _ProductDetailViewState extends State<ProductDetailView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.product.productTitle!),
+        title: Text(
+          widget.product.productTitle!,
+          style: TextStyle(fontWeight: FontWeight.bold),
+        ),
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -41,14 +44,15 @@ class _ProductDetailViewState extends State<ProductDetailView> {
               }).toList(),
               carouselController: _carouselController,
               options: CarouselOptions(
-                  autoPlay: false,
-                  enlargeCenterPage: true,
-                  aspectRatio: 1.0,
-                  onPageChanged: (index, reason) {
-                    setState(() {
-                      _current = index;
-                    });
-                  }),
+                autoPlay: false,
+                enlargeCenterPage: true,
+                aspectRatio: 1.0,
+                onPageChanged: (index, reason) {
+                  setState(() {
+                    _current = index;
+                  });
+                },
+              ),
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -71,15 +75,21 @@ class _ProductDetailViewState extends State<ProductDetailView> {
               padding: const EdgeInsets.all(8.0),
               child: Text(
                 widget.product.productTitle!,
-                style: Theme.of(context)
-                    .textTheme
-                    .headline6
-                    ?.copyWith(fontWeight: FontWeight.bold),
+                style: Theme.of(context).textTheme.headline6?.copyWith(
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black87,
+                    ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 8.0),
-              child: Text(widget.product.productDescription!),
+              child: Text(
+                widget.product.productDescription!,
+                style: TextStyle(
+                  fontSize: 16.0,
+                  color: Colors.black54,
+                ),
+              ),
             ),
             /* Row(
               children: [
