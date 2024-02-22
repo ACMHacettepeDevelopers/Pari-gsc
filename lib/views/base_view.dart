@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart'; // Import the package
-import 'package:pari_gsc/views/chat_view.dart';
 import 'package:pari_gsc/views/home.dart';
 import 'package:pari_gsc/views/cart_view.dart';
 import 'package:pari_gsc/views/favorites_view.dart';
@@ -15,12 +14,11 @@ class BaseView extends StatefulWidget {
 }
 
 class _BaseViewState extends State<BaseView> {
-  int _selectedIndex = 0;
+  int _selectedIndex = 1;
 
   final List<Widget> _pages = [
-    HomeView(),
-    ChatView(),
     FavoritesView(),
+    HomeView(),
     UserProfileView(),
   ];
 
@@ -48,7 +46,6 @@ class _BaseViewState extends State<BaseView> {
         color: Theme.of(context).primaryColor,
         items: [
           Icon(Icons.home),
-          Icon(Icons.chat_bubble),
           Icon(Icons.favorite),
           Icon(Icons.person),
         ],
