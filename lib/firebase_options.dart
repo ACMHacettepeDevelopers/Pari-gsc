@@ -54,8 +54,7 @@ class DefaultFirebaseOptions {
     appId: '1:972061656776:android:d16cb61b4625b1eeb5c7fd',
     messagingSenderId: '972061656776',
     projectId: 'pari-gsc',
-    databaseURL:
-        'https://pari-gsc-default-rtdb.europe-west1.firebasedatabase.app',
+    databaseURL: 'https://pari-gsc-default-rtdb.europe-west1.firebasedatabase.app',
     storageBucket: 'pari-gsc.appspot.com',
   );
 
@@ -64,9 +63,9 @@ class DefaultFirebaseOptions {
     appId: '1:972061656776:ios:9346b6571f0ed7a4b5c7fd',
     messagingSenderId: '972061656776',
     projectId: 'pari-gsc',
-    databaseURL:
-        'https://pari-gsc-default-rtdb.europe-west1.firebasedatabase.app',
+    databaseURL: 'https://pari-gsc-default-rtdb.europe-west1.firebasedatabase.app',
     storageBucket: 'pari-gsc.appspot.com',
+    iosClientId: '972061656776-cehujcedco16u1894t44mvu7ffv36fq2.apps.googleusercontent.com',
     iosBundleId: 'com.example.pariGsc',
   );
 }
