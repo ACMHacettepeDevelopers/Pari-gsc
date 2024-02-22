@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:pari_gsc/models/comment_model.dart';
 import 'package:pari_gsc/models/product_model.dart';
+import 'package:pari_gsc/views/chat_room.dart';
 import 'package:pari_gsc/views/comment_view.dart';
 
 class ProductDetailView extends StatefulWidget {
@@ -21,7 +22,11 @@ class _ProductDetailViewState extends State<ProductDetailView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.product.productTitle!),
+        centerTitle: true,
+        title: Text(
+          widget.product.productTitle!,
+          style: const TextStyle(fontWeight: FontWeight.bold),
+        ),
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -33,7 +38,7 @@ class _ProductDetailViewState extends State<ProductDetailView> {
                   builder: (BuildContext context) {
                     return Container(
                       width: MediaQuery.of(context).size.width,
-                      margin: EdgeInsets.symmetric(horizontal: 5.0),
+                      margin: const EdgeInsets.symmetric(horizontal: 5.0),
                       child: Image.asset(item, fit: BoxFit.fitHeight),
                     );
                   },
@@ -53,33 +58,53 @@ class _ProductDetailViewState extends State<ProductDetailView> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                if (_current > 0) // Left arrow button
-                  IconButton(
-                    icon: Icon(Icons.arrow_back_ios, size: 24),
-                    onPressed: () => _carouselController.previousPage(),
-                  ),
-                if (_current <
-                    widget.product.productPhotos!.length -
-                        1) // Right arrow button
-                  IconButton(
-                    icon: Icon(Icons.arrow_forward_ios, size: 24),
-                    onPressed: () => _carouselController.nextPage(),
-                  ),
+                Row(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: IconButton(
+                        icon: Icon(Icons.shopping_basket, size: 32),
+                        onPressed: () => {},
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: IconButton(
+                        icon: Icon(Icons.chat_bubble, size: 32),
+                        onPressed: () =>
+                            Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) =>
+                              ChatRoom(postId: "8VvQ1uEHM0QlSZM9hTrM"),
+                        )),
+                      ),
+                    ),
+                  ],
+                ),
+                Row(
+                  children: [
+                    if (_current > 0) // Left arrow button
+                      IconButton(
+                        icon: Icon(Icons.arrow_back_ios, size: 24),
+                        onPressed: () => _carouselController.previousPage(),
+                      ),
+                    if (_current <
+                        widget.product.productPhotos!.length -
+                            1) // Right arrow button
+                      IconButton(
+                        icon: Icon(Icons.arrow_forward_ios, size: 24),
+                        onPressed: () => _carouselController.nextPage(),
+                      ),
+                  ],
+                ),
               ],
             ),
             Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Text(
-                widget.product.productTitle!,
-                style: Theme.of(context)
-                    .textTheme
-                    .headline6
-                    ?.copyWith(fontWeight: FontWeight.bold),
-              ),
-            ),
-            Padding(
               padding: const EdgeInsets.symmetric(horizontal: 8.0),
-              child: Text(widget.product.productDescription!),
+              child: Text(
+                widget.product.productDescription!,
+                textAlign: TextAlign.justify,
+                style: TextStyle(fontSize: 18),
+              ),
             ),
             /* Row(
               children: [
@@ -108,12 +133,6 @@ class _ProductDetailViewState extends State<ProductDetailView> {
             ),*/
           ],
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          // TODO add-to-cart logic here
-        },
-        child: Icon(Icons.shopping_basket),
       ),
     );
   }
