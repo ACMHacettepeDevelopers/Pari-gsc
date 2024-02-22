@@ -13,7 +13,12 @@
           "package_name": "com.example.pari_gsc"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "972061656776-kacd8e2pi1qp10kg2u4l770nd0ft80ih.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyAmUJYTQNIk109ZrwyBLS_MiRzjal5bcB8"
@@ -21,7 +26,19 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "972061656776-kacd8e2pi1qp10kg2u4l770nd0ft80ih.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "972061656776-cehujcedco16u1894t44mvu7ffv36fq2.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.pariGsc"
+              }
+            }
+          ]
         }
       }
     }
