@@ -1,8 +1,9 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:pari_gsc/models/product_model.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pari_gsc/widgets/product_item.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({Key? key}) : super(key: key);
@@ -67,8 +68,13 @@ class _HomeViewState extends State<HomeView> {
         child: ListView(
           children: [
             30.verticalSpace,
-            const ScreenTitle(
-              title: 'Home',
+            Center(
+              child: const ScreenTitle(
+                title: 'Explore',
+                fontSize: 28.0,
+                fontWeight: FontWeight.w500,
+                fontFamily: 'Roboto',
+              ),
             ),
             20.verticalSpace,
             GridView.builder(
@@ -95,14 +101,27 @@ class _HomeViewState extends State<HomeView> {
 
 class ScreenTitle extends StatelessWidget {
   final String title;
+  final double fontSize;
+  final FontWeight fontWeight;
+  final String fontFamily;
 
-  const ScreenTitle({Key? key, required this.title}) : super(key: key);
+  const ScreenTitle({
+    Key? key,
+    required this.title,
+    this.fontSize = 24.0,
+    this.fontWeight = FontWeight.normal,
+    this.fontFamily = 'Roboto',
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Text(
       title,
-      style: Theme.of(context).textTheme.headline6,
+      style: TextStyle(
+        fontSize: fontSize,
+        fontWeight: fontWeight,
+        fontFamily: fontFamily,
+      ),
     );
   }
 }

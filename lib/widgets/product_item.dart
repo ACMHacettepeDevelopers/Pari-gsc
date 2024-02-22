@@ -23,11 +23,13 @@ class _ProductItemState extends State<ProductItem> {
     return GestureDetector(
       onTap: () {
         Navigator.push(
-            context,
-            MaterialPageRoute(
-                builder: (context) => ProductDetailView(
-                      product: widget.product,
-                    )));
+          context,
+          MaterialPageRoute(
+            builder: (context) => ProductDetailView(
+              product: widget.product,
+            ),
+          ),
+        );
       },
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -48,6 +50,7 @@ class _ProductItemState extends State<ProductItem> {
                 child: Image.asset(
                   widget.product.productPhotos![0],
                   height: 260.h,
+                  fit: BoxFit.fitHeight,
                 ),
               ),
               Positioned(
@@ -63,7 +66,7 @@ class _ProductItemState extends State<ProductItem> {
                     radius: 18.r,
                     backgroundColor: Colors.white,
                     child: Icon(
-                      Icons.favorite_border,
+                      Icons.favorite,
                       color: theme.primaryColor,
                     ),
                   ),

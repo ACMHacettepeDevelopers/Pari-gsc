@@ -4,7 +4,7 @@ import "package:flutter/material.dart";
 import 'package:http/http.dart' as http;
 import "package:pari_gsc/views/authentication_screen.dart";
 
-class FeedbackScreen extends StatelessWidget {
+class UserView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
@@ -17,9 +17,8 @@ class FeedbackScreen extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  const CircleAvatar(
-                    minRadius: 50,
-                    child: Icon(Icons.person),
+                  SizedBox(
+                    height: 70,
                   ),
                   Card(
                     child: Container(
@@ -41,13 +40,6 @@ class FeedbackScreen extends StatelessWidget {
                               children: [
                                 const Text("Surname:"),
                                 Text(userDetails["lastName"]),
-                              ],
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                const Text("Department:"),
-                                Text(userDetails["department"]),
                               ],
                             ),
                             Row(
@@ -137,13 +129,13 @@ class FeedbackScreen extends StatelessWidget {
         });
   }
 
-  Future<Map> getUserDetails() async {
-    print(FirebaseAuth.instance.currentUser!.displayName);
-    final response = await http.post(
-        Uri.parse("https://searchbynickname-mmnpyehg3a-ew.a.run.app"),
-        body: {"nickname": FirebaseAuth.instance.currentUser!.displayName});
-    //final Map data = response.body as Map;
-
-    return jsonDecode(response.body);
+  Future<Map<String, dynamic>> getUserDetails() async {
+    // Dummy data for testing
+    return {
+      "firstName": "John",
+      "lastName": "Doe",
+      "country": "USA",
+      "email": "john.doe@example.com",
+    };
   }
 }

@@ -22,7 +22,7 @@ class _ProductDetailViewState extends State<ProductDetailView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        centerTitle: true,
+
         title: Text(
           widget.product.productTitle!,
           style: const TextStyle(fontWeight: FontWeight.bold),
@@ -46,14 +46,15 @@ class _ProductDetailViewState extends State<ProductDetailView> {
               }).toList(),
               carouselController: _carouselController,
               options: CarouselOptions(
-                  autoPlay: false,
-                  enlargeCenterPage: true,
-                  aspectRatio: 1.0,
-                  onPageChanged: (index, reason) {
-                    setState(() {
-                      _current = index;
-                    });
-                  }),
+                autoPlay: false,
+                enlargeCenterPage: true,
+                aspectRatio: 1.0,
+                onPageChanged: (index, reason) {
+                  setState(() {
+                    _current = index;
+                  });
+                },
+              ),
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -101,6 +102,7 @@ class _ProductDetailViewState extends State<ProductDetailView> {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 8.0),
               child: Text(
+
                 widget.product.productDescription!,
                 textAlign: TextAlign.justify,
                 style: TextStyle(fontSize: 18),
