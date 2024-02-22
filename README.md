@@ -1,4 +1,4 @@
-#Welcome to Pari. 
+##Welcome to Pari. 
 
 Pari's goal is to support the **United Nations' Sustainable Development Goals**, particularly **Goal 12: Responsible Consumption and Production**, and **Goal 11: Sustainable Cities and Communities**..
 
