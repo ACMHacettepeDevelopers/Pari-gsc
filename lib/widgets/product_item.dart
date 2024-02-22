@@ -66,7 +66,7 @@ class _ProductItemState extends State<ProductItem> {
                     radius: 18.r,
                     backgroundColor: Colors.white,
                     child: Icon(
-                      Icons.favorite_border,
+                      Icons.favorite,
                       color: theme.primaryColor,
                     ),
                   ),

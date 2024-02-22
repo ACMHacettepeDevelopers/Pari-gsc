@@ -4,6 +4,8 @@ import 'package:pari_gsc/views/chat_view.dart';
 import 'package:pari_gsc/views/home.dart';
 import 'package:pari_gsc/views/cart_view.dart';
 import 'package:pari_gsc/views/favorites_view.dart';
+import 'package:pari_gsc/views/userScreen.dart';
+import 'package:pari_gsc/views/user_profile_view.dart';
 
 class BaseView extends StatefulWidget {
   BaseView({Key? key}) : super(key: key);
@@ -18,8 +20,8 @@ class _BaseViewState extends State<BaseView> {
   final List<Widget> _pages = [
     HomeView(),
     ChatView(),
-    CartView(),
-    HomeView(),
+    FavoritesView(),
+    UserProfileView(),
   ];
 
   void _onItemTapped(int index) {
@@ -47,8 +49,8 @@ class _BaseViewState extends State<BaseView> {
         items: [
           Icon(Icons.home),
           Icon(Icons.chat_bubble),
-          Icon(Icons.shopping_cart),
           Icon(Icons.favorite),
+          Icon(Icons.person),
         ],
       ),
     );
