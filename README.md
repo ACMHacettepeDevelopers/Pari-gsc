@@ -1,16 +1,9 @@
-# pari_gsc
+#Welcome to Pari. 
 
-A new Flutter project.
+Pari's goal is to support the **United Nations' Sustainable Development Goals**, particularly **Goal 12: Responsible Consumption and Production**, and **Goal 11: Sustainable Cities and Communities**..
 
-## Getting Started
+Pari is a sustainable platform that facilitates the exchange of secondhand items, making it easier to reduce waste. Pari provides users with a sustainable solution that enables waste reduction and efficient resource use by facilitating the exchange of secondhand items with others through the platform.
 
-This project is a starting point for a Flutter application.
+Pari was devoloped by **ACM Hacettepe R&D** Unit with contributions of Zeynep Yeşilkaya, Nisa Sakınmaz and Orhun İnan for competing in **Google Solution Challange** arranged by **Google Developers Student Clup**.
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+If you want to check the back-end of Pari you can visit https://github.com/ACMHacettepeDevelopers/Pari-cloud-functions-gsc .
