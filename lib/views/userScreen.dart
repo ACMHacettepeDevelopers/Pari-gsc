@@ -1,7 +1,5 @@
-import "dart:convert";
 import "package:firebase_auth/firebase_auth.dart";
 import "package:flutter/material.dart";
-import 'package:http/http.dart' as http;
 import "package:pari_gsc/views/authentication_screen.dart";
 
 class UserView extends StatelessWidget {
@@ -132,10 +130,10 @@ class UserView extends StatelessWidget {
   Future<Map<String, dynamic>> getUserDetails() async {
     // Dummy data for testing
     return {
-      "firstName": "John",
-      "lastName": "Doe",
-      "country": "USA",
-      "email": "john.doe@example.com",
+      "firstName": "Zeynep",
+      "lastName": "Yeşilkaya",
+      "country": "Turkey",
+      "email": "zeynepyesilkaya@gmail.com",
     };
   }
 }
